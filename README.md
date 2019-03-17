@@ -1,4 +1,4 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a simple application made with React and allow us to filter a list of contacts using friends names.
 
 ## Available Scripts
 
