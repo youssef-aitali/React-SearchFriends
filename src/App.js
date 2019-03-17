@@ -1,25 +1,36 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import FriendsList from './FriendsList';
+import { contacts } from './contacts';
+import SearchInput from './SearchInput';
 
 class App extends Component {
+
+  constructor() {
+    super();
+    this.state = {
+      contacts: contacts,
+      searchtext: ''
+    }
+  }
+
+  onSearchChange = (event) => {
+    this.setState({ searchtext: event.target.value })
+  }
+
   render() {
+
+    const filteredContacts = this.state.contacts.filter(contact => {
+      return contact.name.toLowerCase().includes(this.state.searchtext.toLowerCase());
+    })
+
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div>
+        <h1>Friends List</h1>
+        <SearchInput searchChange={this.onSearchChange} />
+        <div className="container">
+          <FriendsList contacts={filteredContacts} />
+        </div>
       </div>
     );
   }

@@ -1,0 +1,26 @@
+.search_box{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+}
+
+.search_box input {
+    height: 2rem;
+    width: 12rem;
+    background: skyblue;
+    border: 1px royalblue solid;
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    padding: .5rem;
+}
+
+.search_box input::placeholder {
+    color: white;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+
